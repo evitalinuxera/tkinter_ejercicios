@@ -1,13 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
 
-root = tk.Tk()
-root.title("Calculador de distancias")
-
-# Declaramos las variables
-valor_en_pies = tk.StringVar()
-valor_en_metros = tk.StringVar()
-
 # Función de conversión
 # El try es por si le damos al botón de calcular antes 
 # de poner algún valor en el campo de ingreso.
@@ -17,6 +10,13 @@ def calcular_pies(*args):
         valor_en_pies.set('%.3f' % (value * 3.28084))
     except ValueError:
         pass
+
+root = tk.Tk()
+root.title("Calculador de distancias")
+
+# Declaramos las variables
+valor_en_pies = tk.StringVar()
+valor_en_metros = tk.StringVar()
 
 # Frame ppal
 main = ttk.Frame(root, padding="30 15 30 15")

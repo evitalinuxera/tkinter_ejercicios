@@ -1,15 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
 
-root = tk.Tk()
-root.title("Widget Examples")
-
-# Acá viene el selector
-dia_seleccionado = tk.StringVar()
-dia_semana = ttk.Combobox(root, textvariable=dia_seleccionado)
-dia_semana["values"] = ("Lunes", "Martes", "Miércoles", "Jueves", "Viernes")
-dia_semana["state"] = "readonly"  # "normal" es para que se puedan agregar valores.
-dia_semana.pack()
 
 # Función adosada al combo
 def cambiar_seleccion(event):
@@ -19,6 +10,15 @@ def cambiar_seleccion(event):
     print(dia_semana.current())  # Esto puede devolver -1 si el usuario tipea su propio valor.
 
 
+root = tk.Tk()
+root.title("Widget Examples")
+
+# Acá viene el selector
+dia_seleccionado = tk.StringVar()
+dia_semana = ttk.Combobox(root, textvariable=dia_seleccionado)
+dia_semana["values"] = ("Lunes", "Martes", "Miércoles", "Jueves", "Viernes")
+dia_semana["state"] = "readonly"  # "normal" es para que se puedan agregar valores.
+dia_semana.pack()
 dia_semana.bind("<<ComboboxSelected>>", cambiar_seleccion)
 
 root.mainloop()
